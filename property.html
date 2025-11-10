@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hart Properties — Home Search</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  
   <header>
     <div class="logo">HartProperties</div>
     <nav>
@@ -19,18 +20,17 @@
     </nav>
   </header>
 
-
+  
   <div class="slideshow">
-    <img src="building1.avif" class="active">
-    <img src="building2.avif">
-    <img src="building3.jpg">
-    <img src="building4.webp">
-    <img src="mansion.jpg">
-    <img src ="mountain.avif">
-
+    <img src="building1.avif" class="active" alt="Property 1" />
+    <img src="building2.avif" alt="Property 2" />
+    <img src="building3.jpg" alt="Property 3" />
+    <img src="building4.webp" alt="Property 4" />
+    <img src="mansion.jpg" alt="Property 5" />
+    <img src="mountain.avif" alt="Property 6" />
 
     <div class="search-box">
-      <input type="text" id="city" placeholder="City / Locality Name">
+      <input type="text" id="city" placeholder="City / Locality Name" />
       <select id="type">
         <option value="">Property Type</option>
         <option value="house">House</option>
@@ -42,10 +42,11 @@
         <option value="sale">For Sale</option>
         <option value="rent">For Rent</option>
       </select>
-      <input type="number" id="price" placeholder="Max Price (₦)">
+      <input type="number" id="price" placeholder="Max Price (₦)" />
       <button id="searchBtn">Search</button>
     </div>
   </div>
+
 
   <section class="results" id="results"></section>
 
@@ -54,8 +55,9 @@
     © 2025 HartProperties — Designed by Divine Hart
   </footer>
 
-  <script>
 
+  <script>
+    // --- Slideshow Logic ---
     const slides = document.querySelectorAll(".slideshow img");
     let current = 0;
 
@@ -66,29 +68,28 @@
     }
     setInterval(showNextSlide, 5000);
 
-    
-   const properties = [
-  { city: "Lagos", type: "house", status: "sale", price: 120000000, image: "building1.avif", name: "4-Bedroom Duplex, Lekki" },
-  { city: "Abuja", type: "apartment", status: "rent", price: 4000000, image: "building2.avif", name: "Luxury Apartment, Maitama" },
-  { city: "Port Harcourt", type: "land", status: "sale", price: 8000000, image: "building3.jpg", name: "600sqm Land, GRA Phase 2" },
-  { city: "Enugu", type: "house", status: "sale", price: 25000000, image: "building4.webp", name: "3-Bedroom Bungalow, Independence Layout" },
-  { city: "Lagos", type: "apartment", status: "rent", price: 3500000, image: "mansion.jpg", name: "4-Bedroom Apartment, Ikoyi" },
-  { city: "Port Harcourt", type: "apartment", status: "sale", price: 65000000, image: "mountain.avif", name: "6-Bedroom Apartment, Banana Island" }
-];
+    // --- Property Data ---
+    const properties = [
+      { city: "Lagos", type: "house", status: "sale", price: 120000000, image: "building1.avif", name: "4-Bedroom Duplex, Lekki" },
+      { city: "Abuja", type: "apartment", status: "rent", price: 4000000, image: "building2.avif", name: "Luxury Apartment, Maitama" },
+      { city: "Port Harcourt", type: "land", status: "sale", price: 8000000, image: "building3.jpg", name: "600sqm Land, GRA Phase 2" },
+      { city: "Enugu", type: "house", status: "sale", price: 25000000, image: "building4.webp", name: "3-Bedroom Bungalow, Independence Layout" },
+      { city: "Lagos", type: "apartment", status: "rent", price: 3500000, image: "mansion.jpg", name: "4-Bedroom Apartment, Ikoyi" },
+      { city: "Port Harcourt", type: "apartment", status: "sale", price: 65000000, image: "mountain.avif", name: "6-Bedroom Apartment, Banana Island" }
+    ];
 
-
+    // --- Search Function ---
     document.getElementById("searchBtn").addEventListener("click", () => {
       const city = document.getElementById("city").value.toLowerCase();
       const type = document.getElementById("type").value;
       const status = document.getElementById("status").value;
       const price = parseInt(document.getElementById("price").value) || Infinity;
 
-      const results = properties.filter(
-        p =>
-          (!city || p.city.toLowerCase().includes(city)) &&
-          (!type || p.type === type) &&
-          (!status || p.status === status) &&
-          p.price <= price
+      const results = properties.filter(p =>
+        (!city || p.city.toLowerCase().includes(city)) &&
+        (!type || p.type === type) &&
+        (!status || p.status === status) &&
+        p.price <= price
       );
 
       const resultsContainer = document.getElementById("results");
@@ -103,7 +104,7 @@
         const card = document.createElement("div");
         card.classList.add("property-card");
         card.innerHTML = `
-          <img src="${p.image}" alt="${p.name}">
+          <img src="${p.image}" alt="${p.name}" />
           <div class="info">
             <h3>${p.name}</h3>
             <p><b>Location:</b> ${p.city}</p>
@@ -115,6 +116,6 @@
         resultsContainer.appendChild(card);
       });
     });
-  </script> 
+  </script>
 </body>
 </html>
