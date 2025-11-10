@@ -21,10 +21,10 @@
 
 
   <div class="slideshow">
-    <img src="building 1.avif" class="active">
-    <img src="building 2.avif">
-    <img src="building 3.jpg">
-    <img src="building 4.webp">
+    <img src="building1.avif" class="active">
+    <img src="building2.avif">
+    <img src="building3.jpg">
+    <img src="building4.webp">
     <img src="mansion.jpg">
     <img src ="mountain.avif">
 
@@ -67,13 +67,15 @@
     setInterval(showNextSlide, 5000);
 
     
-    const properties = [
-      { city: "Lagos", type: "house", status: "sale", price: 120000000, image: "building 1.avif", name: "4-Bedroom Duplex, Lekki" },
-      { city: "Abuja", type: "apartment", status: "rent", price: 4000000, image: "building 2.avif", name: "Luxury Apartment, Maitama" },
-      { city: "Port Harcourt", type: "land", status: "sale", price: 8000000, image: "building 3.jpg", name: "600sqm Land, GRA Phase 2" },
-      { city: "Enugu", type: "house", status: "sale", price: 25000000, image: "building 4.webp", name: "3-Bedroom Bungalow, Independence Layout" },
-      { city: "Lagos", type: "apartment", status: "rent", price: 3500000, image: "mansion.jpg", name: "2-Bedroom Apartment, Ikoyi" }
-    ];
+   const properties = [
+  { city: "Lagos", type: "house", status: "sale", price: 120000000, image: "building1.avif", name: "4-Bedroom Duplex, Lekki" },
+  { city: "Abuja", type: "apartment", status: "rent", price: 4000000, image: "building2.avif", name: "Luxury Apartment, Maitama" },
+  { city: "Port Harcourt", type: "land", status: "sale", price: 8000000, image: "building3.jpg", name: "600sqm Land, GRA Phase 2" },
+  { city: "Enugu", type: "house", status: "sale", price: 25000000, image: "building4.webp", name: "3-Bedroom Bungalow, Independence Layout" },
+  { city: "Lagos", type: "apartment", status: "rent", price: 3500000, image: "mansion.jpg", name: "4-Bedroom Apartment, Ikoyi" },
+  { city: "Port Harcourt", type: "apartment", status: "sale", price: 65000000, image: "mountain.avif", name: "6-Bedroom Apartment, Banana Island" }
+];
+
 
     document.getElementById("searchBtn").addEventListener("click", () => {
       const city = document.getElementById("city").value.toLowerCase();
